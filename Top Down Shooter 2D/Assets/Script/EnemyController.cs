@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    
+  
     public float speed;
 
     private Transform playerPos;
@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
         {
             healt--;
         }
+
+        
     }
 
 /*

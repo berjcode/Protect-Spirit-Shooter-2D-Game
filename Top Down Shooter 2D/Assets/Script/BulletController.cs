@@ -24,6 +24,19 @@ public class BulletController : MonoBehaviour
 
 
         );
-        Destroy(gameObject,2f);
+        Destroy(gameObject,1f);
     }
+
+     private void OnTriggerEnter2D(Collider2D  col)
+    {
+        if(col.tag =="enemy")
+        {
+            Destroy(gameObject);
+        }
+
+        
+    }
+
+
+    
 }

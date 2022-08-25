@@ -7,20 +7,19 @@ public class PlayerController : MonoBehaviour
     //Components
     public Rigidbody2D rb;
     public Animator animator;
+    
     //GamePlay
     public float speed;
+
+    private float horizontal;
+    private float vertical;
     private Vector2 movement;
 
 
-
-
-
-    
     void Start()
     {
-        
+        rb=GetComponent<Rigidbody2D>();
     }
-
  
     void Update()
     {
@@ -32,10 +31,10 @@ public class PlayerController : MonoBehaviour
     #region  Movement Codes
     private void MovementMake()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y=Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        vertical= Input.GetAxis("Vertical");
 
-        rb.velocity =new Vector2(movement.x * speed,movement.y*speed);
+        rb.velocity =new Vector2(horizontal * speed,vertical*speed);
         RunAnim();
 
     }
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
    #region  Character Animations
     private void RunAnim()
     {
-        if(movement.x != 0 || movement.y != 0)
+        if(horizontal!= 0 || vertical != 0)
         {
             animator.SetBool("isRuning",true);
         }else
@@ -54,4 +53,48 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+
+
+    #region MoveButton
+    public void GoLeft()
+    {
+        horizontal =-1;
+    }
+
+    public void GoRight()
+    {
+       horizontal =1;
+    }
+
+    public void StopButton()
+    {
+       horizontal =0;
+   
+    }
+     public void StopButtonY()
+    {
+       vertical=0;
+   
+    }
+
+    public void GoUp()
+    {
+       vertical =1;
+
+    }
+    public void GoDown()
+    {
+        vertical=-1;
+    }
+
+
+
+
+    #endregion
+
+
+
+
+
 }

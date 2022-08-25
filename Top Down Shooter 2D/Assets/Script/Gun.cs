@@ -11,6 +11,10 @@ public class Gun : MonoBehaviour
      public GameObject bullets;
 
 
+
+
+
+ 
     void Start()
     {
         
@@ -49,4 +53,12 @@ public class Gun : MonoBehaviour
     {
         Instantiate(bullets,transform.position,Quaternion.identity);
     }
+
+
+    
+
+
+    
+
+
 }
