@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
 
     private Transform playerPos;
-
+    private int healt=5;
 
     void Start()
     {
@@ -21,6 +21,32 @@ public class EnemyController : MonoBehaviour
         playerPos.position,
         speed * Time.deltaTime
         );
+
+
+        if(healt <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D  col)
+    {
+        if(col.tag =="Bullet")
+        {
+            healt--;
+        }
+    }
+
+/*
+    public void Killer()
+    {
+        if(healt == 0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+    */
 
 }
