@@ -31,19 +31,22 @@ public class PlayerController : MonoBehaviour
     #region  Movement Codes
     private void MovementMake()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical= Input.GetAxis("Vertical");
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y= Input.GetAxis("Vertical");
 
-        rb.velocity =new Vector2(horizontal * speed,vertical*speed);
+        rb.velocity =new Vector2(movement.x  * speed,movement.y*speed);
         RunAnim();
 
     }
     #endregion 
 
+
+    
+
    #region  Character Animations
     private void RunAnim()
     {
-        if(horizontal!= 0 || vertical != 0)
+        if(movement.x != 0 || movement.y != 0)
         {
             animator.SetBool("isRuning",true);
         }else
@@ -56,45 +59,5 @@ public class PlayerController : MonoBehaviour
 
 
 
-    #region MoveButton
-    public void GoLeft()
-    {
-        horizontal =-1;
-    }
-
-    public void GoRight()
-    {
-       horizontal =1;
-    }
-
-    public void StopButton()
-    {
-       horizontal =0;
    
-    }
-     public void StopButtonY()
-    {
-       vertical=0;
-   
-    }
-
-    public void GoUp()
-    {
-       vertical =1;
-
-    }
-    public void GoDown()
-    {
-        vertical=-1;
-    }
-
-
-
-
-    #endregion
-
-
-
-
-
 }
