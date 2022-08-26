@@ -23,13 +23,7 @@ public class EnemyController : MonoBehaviour
         speed * Time.deltaTime
         );
 
-
-        if(healt <= 0)
-        {
-            Destroy(gameObject);
-            ScorManager.Instance.score++;
-            ScorManager.Instance.scorText.text =  ScorManager.Instance.score.ToString();
-        }
+        Killer();
     }
 
 
@@ -38,20 +32,32 @@ public class EnemyController : MonoBehaviour
         if(col.tag =="Bullet")
         {
             healt--;
+
         }
+
+
+          if(col.tag=="Player")
+          {
+            ScorManager.Instance.playerHealth--;
+            ScorManager.Instance.healthText.text =  ScorManager.Instance.playerHealth.ToString();
+          }
 
         
     }
 
-/*
+    
+
+
     public void Killer()
     {
         if(healt == 0)
         {
             Destroy(gameObject);
+            ScorManager.Instance.score++;
+            ScorManager.Instance.scorText.text =  ScorManager.Instance.score.ToString();
         }
 
     }
-    */
+    
 
 }
