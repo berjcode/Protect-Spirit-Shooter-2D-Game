@@ -55,6 +55,8 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
             ScorManager.Instance.score++;
             ScorManager.Instance.scorText.text =  ScorManager.Instance.score.ToString();
+            SoundController.Instance.fireSound.PlayOneShot(SoundController.Instance.deadEnemySound[0],0.5f);
+
         }
 
     }

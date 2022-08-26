@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public static PlayerController Instance {get; set;}
+
+    public void Awake()
+    {
+        Instance=this;
+    }
     //Components
     public Rigidbody2D rb;
     public Animator animator;

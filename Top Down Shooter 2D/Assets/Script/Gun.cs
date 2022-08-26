@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
+
      private Vector3 mousePos;
 
      public GameObject cross;
@@ -36,27 +38,33 @@ public class Gun : MonoBehaviour
                 mousePos.y,
                 transform.position.z
             );
-
-            if(Input.GetMouseButtonDown(0))
-            {
-                Shoot();
-            }
+           
+           
 
             Vector3 targetDirection =mousePos -transform.position;
             float rotateZ = Mathf.Atan2(targetDirection.y,targetDirection.x) * Mathf.Rad2Deg;
             transform.rotation= Quaternion.Euler(0f, 0f, rotateZ);
-
+             FireSystem();
+             
     }
 
 
-    private void Shoot()
+    public void Shoot()
     {
         Instantiate(bullets,transform.position,Quaternion.identity);
     }
 
+        public void FireSystem()
+            {
+                if(Input.GetMouseButtonDown(0) )
+                 {
+                     Shoot();
+                     SoundController.Instance.fireSound.PlayOneShot(SoundController.Instance.clip[0],0.5f);
+              
+                }
+            }
 
-    
-
+  
 
     
 
