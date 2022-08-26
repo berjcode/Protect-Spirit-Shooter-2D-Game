@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+   
   
     public float speed;
 
@@ -26,6 +27,8 @@ public class EnemyController : MonoBehaviour
         if(healt <= 0)
         {
             Destroy(gameObject);
+            ScorManager.Instance.score++;
+            ScorManager.Instance.scorText.text =  ScorManager.Instance.score.ToString();
         }
     }
 
