@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     #region  Movement Codes
     private void MovementMake()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y= Input.GetAxis("Vertical");
+        movement.x = SimpleInput.GetAxis("Horizontal");
+        movement.y= SimpleInput.GetAxis("Vertical");
 
         rb.velocity =new Vector2(movement.x  * speed,movement.y*speed);
         RunAnim();
